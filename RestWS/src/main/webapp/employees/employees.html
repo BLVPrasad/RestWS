@@ -1,0 +1,36 @@
+<div class="row">
+ <div class="col-md-12" data-ng-show="employees.length > 0">
+ 
+ <nav class= "navbar navbar-default" role= "navigation" >
+ <div class= "navbar-header" >
+ <a class="btn btn-lg btn-success" href="#/edit-employee/0"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add new Employee</a>
+ </div>
+ </nav>
+ <table class="table table-striped table-bordered">
+ <thead>
+ <th>Employee ID&nbsp;</th>
+ <th>Employee Name&nbsp;</th>
+ <!-- <th>Email&nbsp;</th>
+ <th>Address&nbsp;</th>
+ <th>City&nbsp;</th>
+ <th>Country&nbsp;</th> -->
+ <th>Action&nbsp;</th>
+ </thead>
+ <tbody>
+ <tr ng-repeat="data in employees">
+ <td>{{data.empId}}</td>
+ <td>{{data.empName}}</td>
+ <!-- <td>{{data.address}}</td>
+ <td>{{data.city}}</td>
+ <td>{{data.country}}</td> -->
+ <td><a href="#/edit-employee/{{data.employeeNumber}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit employee</a></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <div class="col-md-12" data-ng-show="employees.length == 0">
+ <div class="col-md-12">
+ <h4>No Employees found</h4>
+ </div>
+ </div>
+</div>

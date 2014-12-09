@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+  
+  <script>
+		   var hexEmployees = angular.module('employeesApp', []);
+		
+			hexEmployees.controller("EmployeesController", function ($scope, $http) {
+		    $http.get('http://localhost:7080/RestWS/hexaware/employees/emplist').
+		    success(function (data) {
+		        $scope.events = data;
+		    });
+		});
+  </script>
+  
+  
+</head>
+<body ng-app="employeesApp">
+  <div ng-controller="EmployeesController" class="container">
+    <h1>Employees</h1>
+    <hr/>
+    <div ng-repeat="employee in employees" class="col-md-6">
+      <h4>{{employee.empId}}</h4>
+      <p>{{employee.empName}}</p>
+    </div>
+  </div>
+</body>
+</html>

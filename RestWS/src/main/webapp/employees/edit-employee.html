@@ -1,0 +1,74 @@
+<div class="view">
+ <div class="container">
+ <div class="row">
+ <nav class= "navbar navbar-default" role= "navigation" >
+ <div class= "navbar-header" >
+ <a class= "navbar-brand" href= "#/employees"><i class="glyphicon glyphicon-th-large"></i> Employees List </a>
+ <a data-ng-show="employee._id" class= "navbar-brand" href= "#/edit-employee/0"><i class="glyphicon glyphicon-plus"></i> Create Employee </a>
+ <a data-ng-show="employee._id" class= "navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i> Currently Editing Employee Number: {{employee._id}}</a>
+ </div>
+ </nav>
+ <header>
+ <h3>{{title}}</h3>
+ </header>
+ <div class="col-md-12">
+ 
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+
+<div class= "form-group" ng-class="{error: myForm.empId.$invalid}">
+ <label class= "col-md-2"> Emp Id </label>
+ <div class="col-md-4">
+ <input name="empId" data-ng-model="employee.empId" type= "text" class= "form-control" placeholder="Your empId" required/>
+ <span ng-show="myForm.empId.$dirty && myForm.empId.$invalid" class="help-inline">empId Required</span>
+ </div>
+</div>
+<div class= "form-group" ng-class="{error: myForm.empName.$invalid}">
+ <label class= "col-md-2"> Emp Name </label>
+ <div class="col-md-4">
+ <input name="empName" data-ng-model="employee.empName" type= "text" class= "form-control" placeholder="Your name" required/>
+ <span ng-show="myForm.empName.$dirty && myForm.empName.$invalid" class="help-inline">Name Required</span>
+ </div>
+</div>
+<!-- <div class= "form-group">
+ <label class= "col-md-2"> Email address </label>
+ <div class="col-md-4">
+ <input name="email" data-ng-model="employee.email" type= "email" class= "form-control" placeholder="Enter email" required/>
+ <span ng-show="myForm.email.$dirty && myForm.email.$invalid && !myForm.email.$error.email" class="help-inline">Email Required</span>
+ <span ng-show="myForm.email.$error.email" class="help-inline">Email is not valid</span>
+ </div>
+</div>
+<div class= "form-group">
+ <label class= "col-md-2">Address </label>
+ <div class="col-md-4">
+ <input data-ng-model="employee.address" type= "text" class= "form-control" placeholder= "Present Address"/>
+ </div>
+</div>
+<div class= "form-group">
+ <label class= "col-md-2">City </label>
+ <div class="col-md-4">
+ <input data-ng-model="employee.city" type= "text" class= "form-control" placeholder= "Current City"/>
+ </div>
+</div>
+<div class= "form-group">
+ <label class= "col-md-2">Country </label>
+ <div class="col-md-4">
+ <input data-ng-model="employee.country" type= "text" class= "form-control" placeholder= "Residing Country"/>
+ </div>
+</div> -->
+<div class= "form-group">
+ <label class= "col-md-2"></label>
+ <div class="col-md-4">
+ <a href="#/" class="btn">Cancel</a>
+ <button data-ng-click="saveEmployee(employee);"
+ ng-disabled="isClean() || myForm.$invalid"
+ class="btn btn-primary">{{buttonText}}</button>
+ <button data-ng-click="deleteEmployee(employee)"
+ data-ng-show="employee._id" class="btn btn-warning">Delete</button>
+ </div>
+</div>
+</div>
+</form>
+ </div></div>
+ </div>
+</div>
